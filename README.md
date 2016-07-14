@@ -3,8 +3,10 @@ spring-boot-demo
 
 ## Build
 
-    mvn clean install -Dmaven.test.skip=true
+Build the image using docker-maven-plugin.
+
+    mvn clean package docker:build
 
 ## Run
 
-    java -jar target\boot-demo-1.0.0-SNAPSHOT.jar
+    docker run --rm -it -p 8080:8080 playground/boot-demo
