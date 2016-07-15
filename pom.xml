@@ -16,11 +16,12 @@
 	<packaging>jar</packaging>
 
 	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for building and running Spring Boot application (in Docker container).</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+        <docker.image.prefix>playground</docker.image.prefix>
 	</properties>
 
 	<build>
@@ -37,9 +38,8 @@
                 <artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.10</version>
                 <configuration>
-                    <imageName>playground/boot-demo</imageName>
-                    <dockerDirectory>./docker</dockerDirectory>
-                    <!--<entryPoint>["java", "-jar", "/${project.build.finalName}.${project.packaging}"]</entryPoint>-->
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <buildArgs>
                         <APP_PATH>${project.build.finalName}.${project.packaging}</APP_PATH>
                     </buildArgs>

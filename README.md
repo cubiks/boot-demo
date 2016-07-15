@@ -17,7 +17,7 @@ To run the app locally:
 
     java -jar target\boot-demo-1.0.0-SNAPSHOT.jar
 
-To the app inside a Docker container use the following:
+To run the app inside a Docker container use the following:
 
     docker run --rm -it -p 8080:8080 playground/boot-demo
 
